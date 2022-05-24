@@ -1,0 +1,9 @@
+<pop-up [text]="popUp.text" [isSuccess]="popUp.isSuccess"></pop-up>
+<form class="created-form"
+    (ngSubmit) = "submitValues()"
+    [ngStyle]="formStyles"
+    [formGroup]="form">
+    <app-form-control [form]="form" *ngFor="let item of formElements" [key]="item.key" cdkDrag [elementType]="item.element" [selectableSection]="true">
+        <div class="element-placeholder" *cdkDragPlaceholder></div>
+    </app-form-control>
+</form>

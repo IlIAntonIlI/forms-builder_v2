@@ -1,0 +1,24 @@
+<pop-up [text]="message$ | async "></pop-up>
+<div class="form-container" [ngClass]="authFormStyles.background">
+    <form [formGroup]="authForm" class = "form triangle" [ngClass]="authFormStyles.form">
+        <div>
+            <h2 *ngIf="currentUrl==='login'">Login form</h2>
+            <h2 *ngIf="currentUrl==='registration'">Registration</h2>
+        </div>
+        <div class="form-field" *ngFor="let item of authFormFields; let i = index">
+            <app-custom-input [inputLabel]="item.label" [formControlName]="item.formControl" [inputType]="item.type"></app-custom-input>
+        </div>
+        <div class="form-buttons">
+            <button class="button button-primary" (click)="login()" *ngIf="!(isLoading$ | async) && currentUrl==='login'">Sign in</button>
+            <button class="button button-primary" (click)="signUp()" *ngIf="!(isLoading$ | async) && currentUrl==='registration'">Sign up</button>
+            <div class="image-container" *ngIf="isLoading$ | async">
+                <img src="../../assets/loader.gif" alt="loader">
+            </div>
+        </div>
+        <div class="sign-out-link" *ngIf="currentUrl==='login'">
+            <p>If you don't have an account, you can <a class="blue-text" routerLink="/registration">Create one here</a></p>
+        </div>
+    </form>
+</div>
+
+

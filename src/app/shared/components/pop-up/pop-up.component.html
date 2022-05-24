@@ -1,0 +1,8 @@
+<div [ngClass]="componentClasses">
+    <h3 *ngIf="isSuccess">Success</h3>
+    <h3 *ngIf="!isSuccess">Error</h3>
+    <p>{{text}}</p>
+    <div class="button-container">
+        <button (click)="close()">Close</button>
+    </div>
+</div>
