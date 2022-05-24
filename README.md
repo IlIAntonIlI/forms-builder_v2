@@ -1,2 +1,2 @@
 # FormsBuilder
-Deployment link: [https://forms-builder-black.vercel.app/](https://forms-builder-black.vercel.app/)
+This tool allows you to create custom forms using UI.
